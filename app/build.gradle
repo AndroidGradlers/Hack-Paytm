@@ -32,6 +32,7 @@ dependencies {
     compile 'com.jpardogo.materialtabstrip:library:1.0.9'
     compile files('D:/GouravPrograms/GitProjects/HackPaytm/libs/craftar-augmented-reality-sdk-android.jar')
     compile files('D:/GouravPrograms/GitProjects/HackPaytm/libs/sanselan-0_97-android-1.0.0.jar')
+    compile files('D:/GouravPrograms/GitProjects/HackPaytm/libs/PGSDK_v1.0.jar')
 
 }
 apply plugin: 'com.google.gms.google-services'
