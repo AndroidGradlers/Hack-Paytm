@@ -2,8 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.doomers.hackpaytm">
 
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAMERA_EXTENDED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -33,6 +41,33 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name=".ARProgrammaticallyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ARFromCraftARActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RecognitionOnlyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OnDeviceARActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LaunchersActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HowToActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WebActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".BrowseImageActivity" />
+        <activity android:name=".ProducerConsumerActivity" />
+        <activity android:name=".SellerActivity" />
+        <activity android:name=".WelcomeSellerActivity" />
+        <activity android:name=".ItemDisplayActivity"></activity>
     </application>
 
 </manifest>
