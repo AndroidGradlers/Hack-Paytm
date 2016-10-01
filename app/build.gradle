@@ -26,4 +26,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.cuboid:cuboidcirclebutton:1.0.3'
     compile 'com.android.support:design:24.2.0'
+    compile 'com.google.android.gms:play-services-analytics:9.2.0'
 }
+apply plugin: 'com.google.gms.google-services'
