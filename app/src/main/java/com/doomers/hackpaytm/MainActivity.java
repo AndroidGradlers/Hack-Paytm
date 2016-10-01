@@ -6,17 +6,38 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+
+import com.cuboid.cuboidcirclebutton.CuboidButton;
 
 public class MainActivity extends AppCompatActivity {
+
+    private CuboidButton addMoney,addReminder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        addMoney = (CuboidButton)findViewById(R.id.offlinedeposit);
+        addReminder = (CuboidButton)findViewById(R.id.addareminder);
         if(isNetworkAvailable()){
             Intent i = new Intent(MainActivity.this,HomeActivity.class);
             startActivity(i);
         }
+        addMoney.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,ColorPickerActivity.class));
+            }
+        });
+        addReminder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,SetReminderActivity.class));
+            }
+        });
     }
 
     private boolean isNetworkAvailable() {
@@ -26,11 +47,6 @@ public class MainActivity extends AppCompatActivity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    @Override
-    public void onBackPressed() {
-
-        super.onBackPressed();
-    }
 
     @Override
     protected void onPause() {
@@ -49,4 +65,5 @@ public class MainActivity extends AppCompatActivity {
         Constants.app_back=false;
         super.onResume();
     }
+
 }

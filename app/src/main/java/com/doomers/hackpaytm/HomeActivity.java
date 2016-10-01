@@ -1,8 +1,16 @@
 package com.doomers.hackpaytm;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,9 +20,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private SharedPreferences sharedPreferences;
+    private String amount;
+    NotificationCompat.Builder notification;
+    private static final int uniqueID = 54321;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,15 +35,6 @@ public class HomeActivity extends AppCompatActivity
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -40,7 +44,39 @@ public class HomeActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-    }
+
+            //To retrieve data from sharedPreference
+            sharedPreferences = getSharedPreferences("PasswordPassColors", Context.MODE_PRIVATE); //First arg is filename and second arg is value i.e. private i.e. only app can access this file
+            amount=sharedPreferences.getString("Blue", "Incorrect");
+            SharedPreferences.Editor editor = sharedPreferences.edit();  //to edit the sharedPreference
+
+            if(!amount.equals("Incorrect"))
+            {
+                notification = new NotificationCompat.Builder(this);
+                notification.setAutoCancel(true);
+
+                notification.setSmallIcon(R.drawable.paytm);
+                notification.setTicker("Now you can add " + amount + " rupees");
+                notification.setWhen(System.currentTimeMillis());
+                notification.setContentTitle("Reminder");
+                notification.setContentText("Click to add " + amount + " rupees");
+
+                Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                notification.setSound(alarmSound);
+
+                Intent intent1 = new Intent(this,HomeActivity.class);
+                PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent1,PendingIntent.FLAG_UPDATE_CURRENT);
+                notification.setContentIntent(pendingIntent);
+
+                NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+                notificationManager.notify(uniqueID,notification.build());
+                //Adding values to sharedPreference
+                editor.putString("Blue", "Incorrect");
+                //Commiting the changes in the sharedPreference
+                editor.commit();
+            }
+        }
+
 
     @Override
     public void onBackPressed() {

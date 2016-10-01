@@ -8,45 +8,62 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#ffffff"
     tools:context="com.doomers.hackpaytm.MainActivity">
 
-    <com.cuboid.cuboidcirclebutton.CuboidButton
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:text="Make A Desposit"
-        android:id="@+id/offlinedeposit"
-        android:textColor="@android:color/white"
-        android:textSize="14dp"
-        app:cub_border_radius="0dp"
-        app:cub_color="#eaba49"
-        app:cub_hover_color="#FF5722"
-        android:layout_marginRight="20dp"
-        app:cub_riple_effect="true"
-        android:layout_alignTop="@+id/addareminder"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
-    <com.cuboid.cuboidcirclebutton.CuboidButton
-        android:layout_width="120dp"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:id="@+id/addareminder"
-        android:text="Add a Remainder"
-        android:textColor="@android:color/white"
-        android:textSize="14dp"
-        app:cub_border_radius="0dp"
-        app:cub_color="#eaba49"
-        app:cub_hover_color="#FF5722"
-        android:layout_marginRight="20dp"
-        app:cub_riple_effect="true"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <com.cuboid.cuboidcirclebutton.CuboidButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Add\n Amount"
+            android:id="@+id/offlinedeposit"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textSize="14dp"
+            app:cub_border_radius="0dp"
+            app:cub_color="#02BCED"
+            app:cub_hover_color="#072D6E"
+            android:layout_marginRight="20dp"
+            app:cub_riple_effect="true"
+            android:layout_alignTop="@+id/addareminder"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+
+        <com.cuboid.cuboidcirclebutton.CuboidButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/addareminder"
+            android:text="Set \n Reminder"
+            android:textColor="@android:color/white"
+            android:textSize="14dp"
+            app:cub_border_radius="0dp"
+            android:textStyle="bold"
+            app:cub_color="#02BCED"
+            app:cub_hover_color="#072D6E"
+            android:layout_marginRight="20dp"
+            app:cub_riple_effect="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="120dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Paytm"
+        android:src="@drawable/paytm"
         android:textColor="#FFFF00"
         android:id="@+id/textView2"
         android:textSize="45sp"
