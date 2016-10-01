@@ -25,4 +25,28 @@ public class MainActivity extends AppCompatActivity {
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
+
+    @Override
+    public void onBackPressed() {
+
+        super.onBackPressed();
+    }
+
+    @Override
+    protected void onPause() {
+       finish();
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        Constants.app_back=true;
+        super.onStop();
+    }
+
+    @Override
+    protected void onResume() {
+        Constants.app_back=false;
+        super.onResume();
+    }
 }

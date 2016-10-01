@@ -5,4 +5,5 @@ package com.doomers.hackpaytm;
  */
 public class Constants {
     public static  boolean net_active=false;
+    public static boolean app_back=false;
 }
