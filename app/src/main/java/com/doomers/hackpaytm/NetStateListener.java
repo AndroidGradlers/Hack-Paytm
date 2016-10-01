@@ -7,8 +7,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.widget.Toast;
 
-import com.doomers.hackpaytm.HomeActivity;
-
 public class NetStateListener extends BroadcastReceiver {
     public NetStateListener() {
     }
@@ -21,11 +19,16 @@ public class NetStateListener extends BroadcastReceiver {
                 context.getSystemService(Context.CONNECTIVITY_SERVICE );
         NetworkInfo activeNetInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
         boolean isConnected = activeNetInfo != null && activeNetInfo.isConnectedOrConnecting();
-        if (isConnected) {
+        //if (isConnected) {
+        if(!Constants.net_active) {
             Intent i = new Intent(context, HomeActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
             context.startActivity(i);
-            Toast.makeText(context,"connected",Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "connected", Toast.LENGTH_LONG).show();
+            Constants.net_active=true;
         }
-        else Toast.makeText(context,"Not connected",Toast.LENGTH_LONG).show();
+        //}
+        //else Toast.makeText(context,"Not connected",Toast.LENGTH_LONG).show();
     }
 }
