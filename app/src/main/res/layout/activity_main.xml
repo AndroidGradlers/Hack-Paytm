@@ -8,7 +8,6 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/bg"
     tools:context="com.doomers.hackpaytm.MainActivity">
 
     <com.cuboid.cuboidcirclebutton.CuboidButton
@@ -42,5 +41,17 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Paytm"
+        android:textColor="#FFFF00"
+        android:id="@+id/textView2"
+        android:textSize="45sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="103dp" />
 
 </RelativeLayout>
