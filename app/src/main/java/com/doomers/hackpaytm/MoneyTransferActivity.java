@@ -1,10 +1,13 @@
 package com.doomers.hackpaytm;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.paytm.pgsdk.PaytmMerchant;
@@ -13,16 +16,55 @@ import com.paytm.pgsdk.PaytmPGService;
 import com.paytm.pgsdk.PaytmPaymentTransactionCallback;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
 public class MoneyTransferActivity extends AppCompatActivity {
 
+    private String amount;
+    Bundle bundle;
+    TextToSpeech t1;
+    private RelativeLayout layout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_money_transfer);
+
+        layout = (RelativeLayout)findViewById(R.id.moneyTransferRelativeLayout);
+
+        t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t1.setLanguage(Locale.UK);
+                }
+            }
+        });
+
+        bundle = getIntent().getExtras();
+        if(bundle==null)
         onStartTransaction();
+        else{
+            amount = bundle.getString("Amount");
+
+            layout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String replacedStr = amount.replaceAll("add", "adding");
+                    t1.speak(replacedStr, TextToSpeech.QUEUE_FLUSH, null);
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            //Do something after 100ms
+                           onStartTransaction();
+                        }
+                    }, 1000);
+                }
+            });
+        }
 
     }
 

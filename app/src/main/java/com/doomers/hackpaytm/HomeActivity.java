@@ -126,6 +126,10 @@ public class HomeActivity extends AppCompatActivity
 
         }else if(id == R.id.scan){
 
+        }else if(id==R.id.reminder){
+            startActivity(new Intent(HomeActivity.this,SetReminderActivity.class));
+        }else if(id == R.id.addwithvoice){
+            startActivity(new Intent(HomeActivity.this,AddWithVoiceRecognition.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

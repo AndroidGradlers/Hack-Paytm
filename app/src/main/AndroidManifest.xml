@@ -83,6 +83,8 @@
             android:screenOrientation="portrait" />
         <activity android:name=".MoneyTransferActivity" />
         <activity android:name=".AnalyticsApi"></activity>
+
+        <activity android:name=".AddWithVoiceRecognition"></activity>
     </application>
 
 </manifest>
