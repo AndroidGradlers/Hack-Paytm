@@ -24,44 +24,55 @@
         android:layout_below="@+id/imageview"
         android:layout_centerHorizontal="true">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp" >
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Brought to you by"
-            android:layout_marginRight="10dp"
-            android:textSize="20sp"
-            android:textStyle="italic"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/name"
-            android:text="Gourav Suri"
-            android:textColor="@android:color/holo_red_light"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
-            </LinearLayout>
+            android:layout_weight="1.5">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="#052E70"
+                android:text="Brought to you by"
+                android:layout_marginRight="10dp"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                android:id="@+id/textView4" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/name"
+                android:text="\nGourav Suri"
+                android:textColor="#00BAED"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/textView4"
+                android:layout_toEndOf="@+id/textView4" />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="70dp"
+                android:layout_weight="0.7"
+                android:onClick="TextToSpeechCall"
+                android:background="@drawable/mic"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/button4" />
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp" >
+            android:orientation="horizontal">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:textColor="#052E70"
                 android:text="Price"
                 android:layout_marginRight="10dp"
-                android:textSize="25sp"
+                android:textSize="22sp"
                 android:textStyle="bold"/>
             <TextView
                 android:layout_width="0dp"
@@ -69,7 +80,7 @@
                 android:layout_weight="1"
                 android:text="$12"
                 android:id="@+id/price"
-                android:textColor="@android:color/holo_green_dark"
+                android:textColor="#00BAED"
                 android:textStyle="bold"
                 android:textSize="25sp"/>
         </LinearLayout>
@@ -77,18 +88,19 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:orientation="horizontal"
             android:layout_marginBottom="10dp" >
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:id="@+id/further_details"
                 android:text="Further Details"
                 android:layout_marginRight="10dp"
-                android:textSize="25sp"
+                android:textColor="#00BAED"
+                android:textSize="15sp"
                 android:textStyle="italic"/>
         </LinearLayout>
-
     </LinearLayout>
 </RelativeLayout>

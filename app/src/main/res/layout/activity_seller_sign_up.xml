@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@color/background_floating_material_dark"
+    android:background="#052E70"
     tools:context="com.catchoom.craftarsdkexamples.SellerSignUpActivity">
 
     <EditText
@@ -17,6 +17,7 @@
         android:ems="10"
         android:id="@+id/email_edit_Text"
         android:hint="E-mail"
+        android:textColorHint="#ffffff"
         android:layout_alignParentTop="true"
         android:layout_marginTop="48dp"
         android:layout_alignParentRight="true"
@@ -29,6 +30,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
+        android:textColorHint="#ffffff"
         android:id="@+id/password_edit_text"
         android:hint="Password"
         android:layout_marginTop="41dp"
@@ -38,15 +40,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-
-
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:text="Signup"
+        android:textColor="#ffffff"
         android:layout_weight="1"
         android:id="@+id/btnSignup"
         android:layout_height="wrap_content"
-
+        android:background="#052E70"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
