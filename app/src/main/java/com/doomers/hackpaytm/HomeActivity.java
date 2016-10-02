@@ -1,6 +1,5 @@
 package com.doomers.hackpaytm;
 
-import android.support.v7.app.AppCompatActivity;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -9,18 +8,15 @@ import android.content.SharedPreferences;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.NotificationCompat;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 
 
@@ -125,6 +121,8 @@ public class HomeActivity extends AppCompatActivity
         if (id == R.id.Online_shopping) {
            startActivity(new Intent(HomeActivity.this,ProducerConsumerActivity.class));
         }else if(id == R.id.Analytics){
+            startActivity(new Intent(HomeActivity.this,AnalyticsApi.class));
+
 
         }else if(id == R.id.scan){
 
