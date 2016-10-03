@@ -29,8 +29,8 @@ dependencies {
     compile 'com.melnykov:floatingactionbutton:1.1.0'
     compile 'com.google.code.gson:gson:2.3.1'
     compile 'com.jpardogo.materialtabstrip:library:1.0.9'
-    compile files('/home/doomers/AndroidStudioProjects/HackPaytm/libs/PGSDK_v1.0.jar')
-    compile files('/home/doomers/AndroidStudioProjects/HackPaytm/libs/craftar-augmented-reality-sdk-android.jar')
+    compile files('D:/GouravPrograms/GitProjects/HackPaytm/libs/PGSDK_v1.0.jar')
+    compile files('D:/GouravPrograms/GitProjects/HackPaytm/libs/craftar-augmented-reality-sdk-android.jar')
     compile 'com.jjoe64:graphview:4.2.1'
 }
 apply plugin: 'com.google.gms.google-services'
